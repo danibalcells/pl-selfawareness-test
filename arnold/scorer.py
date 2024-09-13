@@ -1,3 +1,5 @@
+from typing import Union
+
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain_community.chat_message_histories import ChatMessageHistory
@@ -33,6 +35,10 @@ class Scorer:
             history_messages_key="chat_history"
         )
 
-    def run(self, transcript: str) -> str:
+    def run(self, transcript: str) -> dict[str, Union[int, str]]:
         response = self.chain.invoke({"transcript": transcript}, {"configurable": {"session_id": "unused"}})
-        return response
+        scores = {}
+        for category, details in response.items():
+            for key, value in details.items():
+                scores[f"{category}_{key}"] = value
+        return scores
