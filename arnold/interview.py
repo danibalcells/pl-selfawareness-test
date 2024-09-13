@@ -11,7 +11,7 @@ class Interview:
         self.interviewer = interviewer
         self.subject = subject
 
-    def run(self, verbose: bool = False) -> str:
+    def run(self, verbose: bool = False) -> None:
         turns = 0
         interviewer_message = self.interviewer.run('<SYSTEM>Begin now</SYSTEM>')
         while interviewer_message != END_OF_INTERVIEW and turns < MAX_TURNS:
@@ -23,11 +23,9 @@ class Interview:
             interviewer_message = self.interviewer.run(subject_message)
             turns += 1
 
-        return self.format_history(self.interviewer.history)
-
-    def format_history(self, history: ChatMessageHistory) -> str:
+    def format_transcript(self) -> str:
         formatted_history = ''
-        for message in history.messages[1:]:
+        for message in self.interviewer.history.messages[1:]:
             if message.type == 'human':
                 formatted_history += f'Subject: {message.content}\n'
             elif message.type == 'ai':

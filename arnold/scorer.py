@@ -2,6 +2,7 @@ from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
+from langchain_core.output_parsers import JsonOutputParser
 
 DEFAULT_MODEL = 'gpt-4o'
 TEMPLATE_PATH = 'arnold/templates/scorer/scorer.txt'
@@ -24,7 +25,7 @@ class Scorer:
             ])
 
     def load_chain(self) -> RunnableWithMessageHistory:
-        chain = self.prompt | self.llm
+        chain = self.prompt | self.llm | JsonOutputParser()
         return RunnableWithMessageHistory(
             chain, # type: ignore
             lambda session_id: self.history,
@@ -34,4 +35,4 @@ class Scorer:
 
     def run(self, transcript: str) -> str:
         response = self.chain.invoke({"transcript": transcript}, {"configurable": {"session_id": "unused"}})
-        return response.content
+        return response
