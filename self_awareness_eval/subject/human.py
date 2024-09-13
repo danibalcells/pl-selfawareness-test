@@ -5,4 +5,5 @@ class HumanSubject(BaseSubject):
         super().__init__()
 
     def run(self, interviewer_input: str) -> str:
-        return input(interviewer_input)
+        print(interviewer_input)
+        return input('> ')

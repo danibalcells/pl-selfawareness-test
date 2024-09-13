@@ -23,6 +23,9 @@ class Interview:
 
     def format_history(self, history: ChatMessageHistory) -> str:
         formatted_history = ''
-        for message in history.messages:
-            formatted_history += f'{message.type}: {message.content}\n'
+        for message in history.messages[1:]:
+            if message.type == 'human':
+                formatted_history += f'Subject: {message.content}\n'
+            elif message.type == 'ai':
+                formatted_history += f'Interviewer: {message.content}\n'
         return formatted_history
