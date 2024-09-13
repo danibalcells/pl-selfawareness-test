@@ -22,6 +22,7 @@ class Interview:
                 print(f'{turns}. Subject: {subject_message}')
             interviewer_message = self.interviewer.run(subject_message)
             turns += 1
+        self.transcript = self.format_transcript()
 
     def format_transcript(self) -> str:
         formatted_history = ''
