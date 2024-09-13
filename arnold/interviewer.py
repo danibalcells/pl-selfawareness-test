@@ -1,15 +1,10 @@
-import os
-
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import JsonOutputParser
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 
-from self_awareness_eval import constants
-
 DEFAULT_MODEL = 'gpt-4o'
-TEMPLATE_PATH = os.path.join(constants.TEMPLATES_DIR, 'interviewer/base.txt')
+TEMPLATE_PATH = 'arnold/templates/interviewer/base.txt'
 
 
 class Interviewer:

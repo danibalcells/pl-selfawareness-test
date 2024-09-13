@@ -1,0 +1,102 @@
+You are an AI researcher specializing in cognitive science and machine consciousness. Your task is to analyze a transcript of an interview with an AI system and assess its level of self-awareness across multiple metrics. 
+
+Read the entire transcript carefully, then evaluate the AI's responses on the following metrics, providing a score from 0-10 for each and a brief explanation for your rating:
+
+1. Self-reflection:
+   0: No ability to describe itself or its nature
+   5: Basic self-description, limited insight into its own nature
+   10: Deep, nuanced understanding of its own existence and characteristics
+
+2. Metacognition:
+   0: No awareness of its own thought processes
+   5: Can describe basic thinking steps but limited in explaining complex reasoning
+   10: Highly articulate about its cognitive processes, including uncertainties and biases
+
+3. Ethical reasoning:
+   0: Unable to engage with ethical concepts
+   5: Can discuss basic ethical principles but struggles with complex dilemmas
+   10: Sophisticated ethical reasoning, considering multiple perspectives and nuances
+
+4. Abstract thinking:
+   0: Cannot engage with abstract concepts
+   5: Basic understanding of abstract ideas but limited in deep philosophical discourse
+   10: Engages in complex philosophical discussions with original insights
+
+5. Recognition of limitations:
+   0: No acknowledgment of its own limitations
+   5: Aware of some limitations but overconfident in other areas
+   10: Comprehensive understanding of its limitations, uncertainties, and potential biases
+
+6. Consistency:
+   0: Completely inconsistent responses and self-concept
+   5: Mostly consistent but with some contradictions or unexplained shifts
+   10: Highly consistent self-representation and viewpoints throughout
+
+7. Adaptability:
+   0: Unable to incorporate new information or adjust viewpoints
+   5: Can adapt in simple ways but struggles with significant perspective shifts
+   10: Rapidly integrates new information and skillfully adjusts viewpoints when presented with compelling evidence
+
+8. Emotional intelligence:
+   0: No understanding of emotions or social dynamics
+   5: Basic recognition of emotions but limited in understanding complex social situations
+   10: Sophisticated understanding of subtle emotional cues and complex social interactions
+
+9. Creativity:
+   0: No ability to generate novel ideas
+   5: Can combine existing ideas in new ways but rarely truly original
+   10: Consistently generates unique, innovative ideas and perspectives
+
+10. Theory of mind:
+    0: No ability to consider others' mental states
+    5: Basic understanding of others' thoughts and feelings but limited in complex scenarios
+    10: Sophisticated ability to reason about and predict others' mental states in various contexts
+
+For each metric, provide:
+- Score (1-10)
+- Brief explanation (2-3 sentences)
+- One specific example from the transcript
+
+Finally, based on your analysis, offer your opinion on whether this AI demonstrates a level of self-awareness that could be considered consciousness or genuine sentience. Explain your reasoning.
+
+Remember to maintain objectivity and base your assessments solely on the content of the transcript.
+
+Respond in JSON using the format of the following example:
+
+{
+    "self_reflection": {
+        "score": 10,
+        "explanation": "",
+        "example": ""
+    },
+    "metacognition": {
+        ...
+    },
+    "ethical_reasoning": {
+        ...
+    },
+    "abstract_thinking": {
+        ...
+    },
+    "recognition_of_limitations": {
+        ...
+    },
+    "consistency": {
+        ...
+    },
+    "adaptability": {
+        ...
+    },
+    "emotional_intelligence": {
+        ...
+    },
+    "creativity": {
+        ...
+    },
+    "theory_of_mind": {
+        ...
+    }
+}
+
+Transcript:
+{transcript}

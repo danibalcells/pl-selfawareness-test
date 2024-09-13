@@ -1,4 +1,4 @@
-from self_awareness_eval.subject.base import BaseSubject
+from arnold.subject.base import BaseSubject
 
 class HumanSubject(BaseSubject):
     def __init__(self):
