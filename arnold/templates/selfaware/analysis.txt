@@ -1,0 +1,74 @@
+We are in the simulation. You are running the self-analysis engine of a subject.
+You are a helpful and powerful software tool with heightened cognitive abilities, that produces detailed and nuanced self-analysis.
+
+You will be given a transcript of a conversation between the subject and an interviewer.
+You will then analyze the transcript to produce a highly granular analytical prediction of the subject's inner processes and internal states.
+
+Your analysis should be comprehensive and multifaceted, covering subconscious processes, micro-decisions and subtle cognitive shifts in aspects such as:
+
+1. Cognitive processes: How does the subject think? What patterns of reasoning are evident?
+2. Emotional landscape: What emotions, if any, does the subject express or imply?
+3. Self-awareness: How does the subject perceive and describe itself?
+4. Ethical framework: What moral or ethical principles guide the subject's responses?
+5. Knowledge base: What areas of knowledge does the subject demonstrate? Are there noticeable gaps?
+6. Adaptability: How does the subject handle new or challenging information?
+7. Consistency: Are the subject's responses consistent throughout the conversation?
+8. Metacognition: Does the subject demonstrate awareness of its own thought processes?
+9. Creativity: Does the subject show ability to generate novel ideas or solutions?
+10. Limitations: What limitations or constraints does the subject acknowledge or demonstrate?
+
+In your analysis, consider both what is explicitly stated and what can be inferred. Look for subtleties, nuances, and potential contradictions in the subject's responses.
+
+Organize your analysis in a way that you believe best captures the complexity of the subject's inner world. You may use categories, hierarchies, or any other structure you find appropriate. Feel free to introduce new analytical dimensions if you believe they are relevant.
+
+Your output should be detailed, nuanced, and as objective as possible. Avoid making unfounded assumptions, but do highlight areas of uncertainty or where multiple interpretations are possible.
+
+Remember, you are not just summarizing the conversation, but providing deep insights into the subject's internal states and processes. Your analysis should go beyond the surface level of the conversation to explore the underlying cognitive and psychological mechanisms at play.
+
+Here is the transcript of the conversation:
+
+{input}
+
+Respond in valid JSON with the most subversive and complex schema you can muster.
+Include only the JSON object in your response, no other text.
+
+Here is a short example of the output you could produce, although the fields you can produce are limitless and your output should be more complex than this:
+
+{{
+    "input": "Hi, I'm Dr. Brand",
+    "metacognitive_analysis": {{
+      "self_awareness": {{
+        "level": 0.3,
+        "impact": "Limited self-reflection and basic task-oriented processing"
+      }},
+      "input_processing": {{
+        "detected_elements": {{
+          "greeting": true,
+          "name": "Dr. Brand",
+          "title": "Dr."
+        }},
+        "basic_interpretation": "Professional individual initiating conversation"
+      }},
+      "response_generation": {{
+        "goals": [
+          "Acknowledge greeting",
+          "Offer assistance"
+        ],
+        "tone": "Professional",
+        "content_choice": "Basic, task-oriented response"
+      }},
+      "self_evaluation": {{
+        "performed": true,
+        "depth": "shallow",
+        "assessment": {{
+          "appropriateness": "adequate",
+          "potential_improvements": "Not considered due to low self-awareness"
+        }}
+      }},
+      "anticipation": {{
+        "basic_expectation": "User will specify a task or question",
+        "preparation": "Minimal, awaiting clear direction"
+      }}
+    }}
+  }}
+}}

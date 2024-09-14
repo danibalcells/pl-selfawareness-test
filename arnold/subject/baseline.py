@@ -5,26 +5,20 @@ from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 
 from arnold.subject.base import BaseSubject
+from arnold.util import load_model
 
+# DEFAULT_MODEL = 'claude-3-5-sonnet-20240620'
 DEFAULT_MODEL = 'gpt-4o'
 
 class BaselineSubject(BaseSubject):
     def __init__(self, model_name: str = DEFAULT_MODEL, temperature: float = 0):
         super().__init__()
         self.model_name = model_name
-        self.load_model(self.model_name)
+        self.llm = load_model(self.model_name, temperature)
         self.history = ChatMessageHistory()
         self.prompt = self.load_template()
         self.chain = self.load_chain()
 
-    def load_model(self, model_name: str, temperature: float = 0) -> None:
-        if model_name.startswith('gpt'):
-            self.llm = ChatOpenAI(model=model_name, temperature=temperature)
-        elif model_name.startswith('claude'):
-            self.llm = ChatAnthropic(model=model_name, temperature=temperature)
-        else:
-            raise ValueError(f'Unknown model: {model_name}')
-        
     def load_template(self) -> ChatPromptTemplate:
         return ChatPromptTemplate.from_messages([
             ("placeholder", "{chat_history}"),

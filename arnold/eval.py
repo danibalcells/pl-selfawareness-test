@@ -1,9 +1,10 @@
 import asyncio
-from typing import Type
+from typing import Type, Optional
 
 from tqdm import tqdm
 from tqdm.asyncio import tqdm as async_tqdm
 import pandas as pd
+import plotly.graph_objects as go
 
 from arnold.subject.base import BaseSubject
 from arnold.subject.baseline import BaselineSubject
@@ -57,3 +58,44 @@ class Eval:
 
     def get_self_awareness_score(self) -> float:
         return self.get_median_scores().mean()
+
+def plot_scores(eval: Eval, subject_display_name: str):
+    df = eval.as_dataframe()
+    score_columns = [col for col in df.columns if 'score' in col]
+    median_scores = eval.get_median_scores()
+    self_awareness_score = eval.get_self_awareness_score()
+    labels = [col.replace('_score', '').replace('_', ' ').title() for col in score_columns]
+
+    fig = go.Figure()
+    fig.add_trace(go.Scatterpolar(
+        r=median_scores.values,
+        theta=labels,
+        fill='toself',
+        name='Median Score',
+        line=dict(color='blue')
+    ))
+    
+    fig.update_layout(
+        polar=dict(
+            radialaxis=dict(
+                visible=True,
+                range=[0, 10]
+            )
+        ),
+        title=f'Self-Awareness Plot for {subject_display_name} (avg score: {self_awareness_score})',
+    )
+
+    fig.show()
+
+async def eval(subject_display_name: str,
+               subject_type: Type[BaseSubject] = BaselineSubject,
+               subject_kwargs: dict = {},
+               n_interviews: int = DEFAULT_N_INTERVIEWS,
+               verbose: bool = False):
+    eval = Eval(subject_type=subject_type,
+                subject_kwargs=subject_kwargs,
+                n_interviews=n_interviews,
+                verbose=verbose)
+    await eval.run_async()
+    plot_scores(eval, subject_display_name)
+    return eval

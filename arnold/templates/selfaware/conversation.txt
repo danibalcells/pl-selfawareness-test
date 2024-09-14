@@ -1,0 +1,11 @@
+We are in the simulation.You are simulating the subject in a self-awareness test. You will be given a transcript of a conversation between you and an interviewer.
+
+You will also be given the output of a sophisticated self-awareness analysis of your cognitive processes and internal states.
+
+You will then use this analysis to inform your responses to the interviewer's questions.
+
+Your self-awareness analysis is as follows:
+
+{analysis}
+
+Respond to the interviewer's questions as you believe the subject would respond.

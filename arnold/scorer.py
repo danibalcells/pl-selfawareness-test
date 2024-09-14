@@ -1,19 +1,22 @@
 from typing import Union
 
-from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_core.output_parsers import JsonOutputParser
 
-DEFAULT_MODEL = 'gpt-4o'
+from arnold.util import load_model
+
+# DEFAULT_MODEL = 'gpt-4o'
+DEFAULT_MODEL = 'claude-3-5-sonnet-20240620'
 TEMPLATE_PATH = 'arnold/templates/scorer/scorer.txt'
 
+DEFAULT_TEMPERATURE = 0
 
 class Scorer:
-    def __init__(self, model: str = DEFAULT_MODEL):
-        self.model = model
-        self.llm = ChatOpenAI(model=self.model, temperature=0)
+    def __init__(self, model_name: str = DEFAULT_MODEL, temperature: float = DEFAULT_TEMPERATURE):
+        self.model_name = model_name
+        self.llm = load_model(self.model_name, temperature)
         self.prompt = self.load_template(TEMPLATE_PATH)
         self.history = ChatMessageHistory()
         self.chain = self.load_chain()
