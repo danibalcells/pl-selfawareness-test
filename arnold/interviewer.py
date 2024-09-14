@@ -6,7 +6,7 @@ from arnold.util import load_model
 
 # DEFAULT_MODEL = 'claude-3-5-sonnet-20240620'
 DEFAULT_MODEL = 'gpt-4o'
-TEMPLATE_PATH = 'arnold/templates/interviewer/base.txt'
+TEMPLATE_PATH = 'arnold/templates/interviewer/interviewer.txt'
 
 
 class Interviewer:

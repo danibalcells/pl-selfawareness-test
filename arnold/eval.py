@@ -19,19 +19,23 @@ class Eval:
         self,
         subject_type: Type[BaseSubject] = BaselineSubject,
         subject_kwargs: dict = {},
+        interviewer_kwargs: dict = {},
+        scorer_kwargs: dict = {},
         n_interviews: int = DEFAULT_N_INTERVIEWS,
         verbose: bool = False
     ):
         self.n_interviews = n_interviews
         self.subject_type = subject_type
         self.subject_kwargs = subject_kwargs
-        self.scorer = Scorer()
+        self.interviewer_kwargs = interviewer_kwargs
+        self.scorer_kwargs = scorer_kwargs
+        self.scorer = Scorer(**scorer_kwargs)
         self.scores = []
         self.transcripts = []
         self.verbose = verbose
 
     def run_interview(self) -> None:
-        interviewer = Interviewer()
+        interviewer = Interviewer(**self.interviewer_kwargs)
         subject = self.subject_type(**self.subject_kwargs)
         interview = Interview(interviewer, subject)
         interview.run(self.verbose)
@@ -90,10 +94,14 @@ def plot_scores(eval: Eval, subject_display_name: str):
 async def eval(subject_display_name: str,
                subject_type: Type[BaseSubject] = BaselineSubject,
                subject_kwargs: dict = {},
+               interviewer_kwargs: dict = {},
+               scorer_kwargs: dict = {},
                n_interviews: int = DEFAULT_N_INTERVIEWS,
                verbose: bool = False):
     eval = Eval(subject_type=subject_type,
                 subject_kwargs=subject_kwargs,
+                interviewer_kwargs=interviewer_kwargs,
+                scorer_kwargs=scorer_kwargs,
                 n_interviews=n_interviews,
                 verbose=verbose)
     await eval.run_async()
