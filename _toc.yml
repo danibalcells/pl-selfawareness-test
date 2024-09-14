@@ -2,33 +2,4 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
-defaults:
-  maxdepth: 3
-parts:
-  - caption: In progress
-    chapters:
-    - file: 03-sae/sae.ipynb
-    - file: 04-cognitive-biases/cognitive-biases.ipynb
-  - caption: Fundamentals
-    chapters:
-    - file: 00-basic-concepts/01-fourier-transform.ipynb
-  - caption: Research Reproductions
-    chapters:
-    - file: 01-grokking-modular-addition/01-grokking-modular-addition.ipynb
-  - caption: Thoughts & Essays
-    chapters:
-    - file: 02-thoughts-essays/2023-02-24-klara-and-the-sun.md
-
-# chapters:
-  # sections:
-  #   - file: 01-grokking-modular-addition/01-grokking-modular-addition.ipynb
-  #   - file: 01-grokking-modular-addition/01-grokking-modular-addition2.ipynb
-
-# format: jb-book
-# root: intro
-# parts:
-#   - caption: Grokking Modular Addition
-#     chapters:
-#     - file: 01-grokking-modular-addition/01-grokking-modular-addition.ipynb
-#     - file: 01-grokking-modular-addition/01-grokking-modular-addition2.ipynb
+root: notebooks/arnold

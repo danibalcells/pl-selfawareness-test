@@ -4,13 +4,14 @@
 title: "Arnold: Self-aware LLM Agents"
 author: Dani Balcells
 copyright: ''
+only_build_toc_files: true
 # logo: logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: cache
-  exclude_patterns: ['arnold.ipynb']
+  # exclude_patterns: ['arnold.ipynb']
   timeout: 5000
 
 # Define the name of the latex output file for PDF builds
