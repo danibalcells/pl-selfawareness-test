@@ -34,5 +34,12 @@ class Eval:
             self.scores.append(self.scorer.run(interview.transcript))
 
     def as_dataframe(self) -> pd.DataFrame:
-        for category in self.scores
         return pd.DataFrame(self.scores)
+
+    def get_median_scores(self) -> pd.Series:
+        df = self.as_dataframe()
+        score_columns = [col for col in df.columns if 'score' in col]
+        return df[score_columns].median()
+
+    def get_self_awareness_score(self) -> float:
+        return self.get_median_scores().mean()
