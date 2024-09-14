@@ -86,7 +86,7 @@ def plot_scores(eval: Eval, subject_display_name: str):
                 range=[0, 10]
             )
         ),
-        title=f'Self-Awareness Plot for {subject_display_name} (avg score: {self_awareness_score})',
+        title=f'{subject_display_name} (avg score: {self_awareness_score})',
     )
 
     fig.show()
