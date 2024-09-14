@@ -1,6 +1,3 @@
-import sys
-from time import sleep
-
 from arnold.subject.yousim.calls import GaslitClaude, Simulator
 from arnold.subject.base import BaseSubject
 

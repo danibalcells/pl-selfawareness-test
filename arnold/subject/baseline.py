@@ -7,11 +7,11 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from arnold.subject.base import BaseSubject
 from arnold.util import load_model
 
-# DEFAULT_MODEL = 'claude-3-5-sonnet-20240620'
-DEFAULT_MODEL = 'gpt-4o'
+DEFAULT_SUBJECT_MODEL = 'gpt-4o'
+DEFAULT_SUBJECT_TEMPERATURE = 0
 
 class BaselineSubject(BaseSubject):
-    def __init__(self, model_name: str = DEFAULT_MODEL, temperature: float = 0):
+    def __init__(self, model_name: str = DEFAULT_SUBJECT_MODEL, temperature: float = DEFAULT_SUBJECT_TEMPERATURE):
         super().__init__()
         self.model_name = model_name
         self.llm = load_model(self.model_name, temperature)
@@ -35,5 +35,8 @@ class BaselineSubject(BaseSubject):
         )
 
     def run(self, interviewer_input: str) -> str:
-        response = self.chain.invoke({"input": interviewer_input}, {"configurable": {"session_id": "unused"}})
+        response = self.chain.invoke(
+            {"input": interviewer_input},
+            {"configurable": {"session_id": "unused"}}
+        )
         return response.content

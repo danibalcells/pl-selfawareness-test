@@ -4,13 +4,12 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 
 from arnold.util import load_model
 
-# DEFAULT_MODEL = 'claude-3-5-sonnet-20240620'
-DEFAULT_MODEL = 'gpt-4o'
+DEFAULT_INTERVIEWER_MODEL = 'gpt-4o'
 TEMPLATE_PATH = 'arnold/templates/interviewer/interviewer.txt'
 
 
 class Interviewer:
-    def __init__(self, model_name: str = DEFAULT_MODEL, temperature: float = 0):
+    def __init__(self, model_name: str = DEFAULT_INTERVIEWER_MODEL, temperature: float = 0):
         self.model_name = model_name
         self.llm = load_model(self.model_name, temperature)
         self.prompt = self.load_template()

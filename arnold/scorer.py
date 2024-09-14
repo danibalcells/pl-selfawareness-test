@@ -7,17 +7,17 @@ from langchain_core.output_parsers import JsonOutputParser
 
 from arnold.util import load_model
 
-# DEFAULT_MODEL = 'gpt-4o'
-DEFAULT_MODEL = 'claude-3-5-sonnet-20240620'
-TEMPLATE_PATH = 'arnold/templates/scorer/scorer.txt'
-
-DEFAULT_TEMPERATURE = 0
+DEFAULT_SCORER_MODEL = 'claude-3-5-sonnet-20240620'
+DEFAULT_SCORER_TEMPERATURE = 0
+SCORER_TEMPLATE_PATH = 'arnold/templates/scorer/scorer.txt'
 
 class Scorer:
-    def __init__(self, model_name: str = DEFAULT_MODEL, temperature: float = DEFAULT_TEMPERATURE):
+    def __init__(self,
+                 model_name: str = DEFAULT_SCORER_MODEL,
+                 temperature: float = DEFAULT_SCORER_TEMPERATURE):
         self.model_name = model_name
         self.llm = load_model(self.model_name, temperature)
-        self.prompt = self.load_template(TEMPLATE_PATH)
+        self.prompt = self.load_template(SCORER_TEMPLATE_PATH)
         self.history = ChatMessageHistory()
         self.chain = self.load_chain()
 

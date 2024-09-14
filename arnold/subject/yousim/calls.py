@@ -7,8 +7,8 @@ from anthropic import Anthropic
 from openai import OpenAI
 from functools import cache
 
-load_dotenv()
 
+load_dotenv()
 
 anthropic = Anthropic(
     api_key=getenv("ANTHROPIC_API_KEY", "placeholder"),
@@ -18,11 +18,7 @@ openai = OpenAI(
     api_key=getenv("OPENAI_API_KEY", "placeholder"),
 )
 
-# PROVIDER = getenv("PROVIDER")
 PROVIDER = "anthropic"
-
-
-
 
 def completion_handler(res, provider: str):
     if provider == "anthropic":
